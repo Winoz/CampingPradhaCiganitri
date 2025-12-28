@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAMPING Ceria Pradha Ciganitri 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Nunito', sans-serif; 
+            /* Warna fallback jika gambar gagal dimuat */
+            background-color: #e0f7fa; 
+            /* Link Gambar Google Drive */
+            background-image: url('https://drive.google.com/uc?export=view&id=1ZJf7_ke9Qy0SAlV98WNvuevKw6gRqJFp'); 
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            overflow-x: hidden; 
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        .floating { animation: float 4s ease-in-out infinite; }
+        
+        @keyframes cloudMove {
+            from { left: -150px; }
+            to { left: 100vw; }
+        }
+        .cloud { 
+            position: absolute; 
+            opacity: 0.7; /* Sedikit transparan agar menyatu dengan background */
+            pointer-events: none; 
+            animation: cloudMove linear infinite; 
+            /* Bayangan halus agar awan terlihat menonjol dari background foto */
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+        }
+        
+        .cartoon-btn {
+            transition: all 0.2s;
+            box-shadow: 0 8px 0 #1b5e20;
+        }
+        .cartoon-btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 4px 0 #1b5e20;
+        }
+        .btn-orange { box-shadow: 0 8px 0 #e65100; }
+        .btn-orange:active { box-shadow: 0 4px 0 #e65100; }
+
+        .form-card {
+            background: rgba(255, 255, 255, 0.95); /* Sedikit lebih solid agar teks terbaca di atas background */
+            backdrop-filter: blur(10px);
+            border-radius: 3rem;
+            box-shadow: 0 20px 0 rgba(0,0,0,0.1); /* Shadow lebih gelap untuk kontras */
+        }
+        
+        .footer-curve {
+            position: relative;
+            background: #1b5e20;
+            height: 100px;
+            border-radius: 100% 100% 0 0 / 100% 100% 0 0;
+            transform: translateY(1px);
+        }
+    </style>
+</head>
+<body class="text-stone-800">
+
+    <!-- Animasi Latar Belakang (Lebih Banyak Awan) -->
+    
+    <!-- Awan 1 (Asli) -->
+    <div class="cloud top-10 text-6xl" style="animation-delay: 0s; animation-duration: 25s;">☁️</div>
+    
+    <!-- Awan 2 (Asli) -->
+    <div class="cloud top-40 text-7xl" style="animation-delay: -10s; animation-duration: 35s;">☁️</div>
+    
+    <!-- Awan 3 (Asli) -->
+    <div class="cloud top-20 text-5xl" style="animation-delay: -5s; animation-duration: 30s;">☁️</div>
+
+    <!-- Awan 4 (Baru - Besar & Lambat di atas) -->
+    <div class="cloud top-[5%] text-8xl opacity-50" style="animation-delay: -15s; animation-duration: 45s;">☁️</div>
+    
+    <!-- Awan 5 (Baru - Kecil & Cepat di tengah) -->
+    <div class="cloud top-[35%] text-4xl opacity-80" style="animation-delay: -2s; animation-duration: 20s;">☁️</div>
+    
+    <!-- Awan 6 (Baru - Sedang di bawah) -->
+    <div class="cloud top-[60%] text-6xl opacity-40" style="animation-delay: -25s; animation-duration: 28s;">☁️</div>
+
+    <!-- Awan 7 (Baru - Sangat Cepat & Kecil untuk detail) -->
+    <div class="cloud top-[15%] text-3xl opacity-60" style="animation-delay: -8s; animation-duration: 18s;">☁️</div>
+
+
+    <!-- Header / Hero Section -->
+    <header class="relative pt-16 pb-32 px-4 text-center overflow-hidden">
+        <div class="relative z-10 max-w-5xl mx-auto">
+            <div class="inline-block bg-yellow-400 text-yellow-900 px-8 py-2 rounded-full font-black text-xl border-4 border-white shadow-xl mb-6 rotate-1">
+                CAMPING PERDANA! 🏕️
+            </div>
+            <h1 class="text-5xl md:text-8xl font-black mb-4 text-[#2e7d32] drop-shadow-lg tracking-tight leading-tight">
+                CAMPING <span class="text-[#f57c00]">CERIA</span><br>
+                <span class="text-3xl md:text-4xl block mt-2">PRADHA CIGANITRI 2026</span>
+            </h1>
+            <p class="text-xl md:text-2xl font-bold text-[#388e3c] italic mb-10 bg-white/60 backdrop-blur-sm inline-block px-6 py-4 rounded-3xl">
+                "Membangun Kedekatan, Menciptakan Kenangan di Halaman Sendiri"
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-6">
+                <button onclick="scrollToId('form-area')" class="cartoon-btn btn-orange bg-[#ff9800] text-white px-10 py-5 rounded-full font-black text-2xl">
+                    DAFTAR SEKARANG 🎒
+                </button>
+                <div class="flex gap-4">
+                    <button onclick="openModal('peserta')" class="bg-white text-green-600 p-5 rounded-full shadow-xl border-4 border-white hover:scale-110 transition-transform" title="Daftar Teman">
+                        <span class="text-3xl">👥</span>
+                    </button>
+                    <button onclick="openModal('support')" class="bg-white text-orange-500 p-5 rounded-full shadow-xl border-4 border-white hover:scale-110 transition-transform" title="Donasi Warga">
+                        <span class="text-3xl">🤝</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-20 bg-[#4caf50] rounded-t-[100%] scale-x-125"></div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="bg-[#4caf50] pb-24 px-4 text-white">
+        <div class="max-w-6xl mx-auto">
+            
+            <!-- Narasi yang diperbarui -->
+            <div class="bg-white/10 backdrop-blur-md p-10 rounded-[4rem] mb-12 border-2 border-white/20 text-center">
+                <p class="text-xl md:text-2xl font-bold leading-relaxed">
+                    Halo Ayah & Bunda warga Pradha Ciganitri! Libur anak sekolah masih lama? Mari ajak si kecil berkegiatan yang positif, merasakan serunya berpetualang di alam bebas tanpa harus jauh dari rumah. Ayo ikut serta dalam acara Camping ground anak-anak komplek kita!
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Waktu & Lokasi diperbarui -->
+                <div class="bg-yellow-100 p-8 rounded-[3rem] border-8 border-yellow-200 text-stone-800 shadow-xl floating">
+                    <h3 class="text-2xl font-black mb-4 text-yellow-700">📅 Waktu & Lokasi</h3>
+                    <ul class="font-bold space-y-2">
+                        <li>🗓️ 3 - 4 Januari 2026</li>
+                        <li>📍 Lapangan Pradha Ciganitri</li>
+                        <li>⏰ Check-in: 16.00 WIB</li>
+                    </ul>
+                </div>
+
+                <!-- Isi Acara diperbarui -->
+                <div class="bg-blue-100 p-8 rounded-[3rem] border-8 border-blue-200 text-stone-800 shadow-xl floating" style="animation-delay: 1s;">
+                    <h3 class="text-2xl font-black mb-4 text-blue-700">🎮 Isi Acara</h3>
+                    <ul class="text-sm font-bold space-y-1">
+                        <li>• Lomba Interaktif</li>
+                        <li>• Treasure Hunt</li>
+                        <li>• Api Unggun & Malam Bakat</li>
+                        <li>• Nonton Bareng</li>
+                    </ul>
+                </div>
+
+                <div class="bg-orange-100 p-8 rounded-[3rem] border-8 border-orange-200 text-stone-800 shadow-xl floating" style="animation-delay: 2s;">
+                    <h3 class="text-2xl font-black mb-4 text-orange-700">🎁 Tukar Kado</h3>
+                    <p class="text-sm font-bold italic leading-snug">Bungkus kertas koran. Nominal Maks. Rp10.000 agar setara!</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
+                <div class="bg-white p-10 rounded-[4rem] text-stone-800 shadow-2xl">
+                    <h3 class="text-2xl font-black text-green-700 mb-6 flex items-center gap-3">🤝 Donasi yang dibutuhkan</h3>
+                    <div class="space-y-4 text-sm font-bold">
+                        <div class="p-4 bg-green-50 rounded-2xl">
+                            <p class="text-green-800">🥘 Konsumsi:</p>
+                            <p class="text-stone-500">Makanan & minuman anak, jagung/sosis bakar.</p>
+                        </div>
+                        <div class="p-4 bg-blue-50 rounded-2xl">
+                            <p class="text-blue-800">⛺ Peralatan:</p>
+                            <p class="text-stone-500">Tenda pribadi (opsional), senter, tikar, kayu bakar.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-emerald-800 p-10 rounded-[4rem] text-white shadow-2xl">
+                    <h3 class="text-2xl font-black mb-6 uppercase tracking-widest">🎒 Anak Bawa Apa Saja?</h3>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 font-bold text-sm">
+                        <li class="bg-white/10 p-4 rounded-2xl">🧥 Jaket Hangat</li>
+                        <li class="bg-white/10 p-4 rounded-2xl">🔦 Senter Pribadi</li>
+                        <li class="bg-white/10 p-4 rounded-2xl">🛌 Tikar & Bantal</li>
+                        <li class="bg-white/10 p-4 rounded-2xl">💊 Obat Pribadi</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bagian Hubungi Panitia -->
+            <div class="mt-16 text-center">
+                <a href="https://wa.me/628568999001?text=Assalamu'alaikum%20Warahmatullahi%20Wabarakatuh%20Admin%20Panitia%20CAMPING%20Ceria.%20Saya%20ingin%20bertanya%20mengenai%20kegiatan%20acara%20ini.%20Syukran%20Jazakallah%20Khairan." target="_blank" class="cartoon-btn inline-flex items-center gap-4 bg-[#25D366] text-white px-12 py-6 rounded-full font-black text-2xl shadow-[0_10px_0_#128C7E]">
+                    <svg class="w-8 h-8 fill-current" viewBox="0 0 448 512">
+                        <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.1-3.2-5.5-.3-8.4 2.4-11.1 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.5 5.5-9.2 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.5 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+                    </svg>
+                    <span>HUBUNGI PANITIA</span>
+                </a>
+                <p class="mt-4 text-emerald-100 font-bold italic drop-shadow">Untuk Informasi lebih lanjut (fast respon) ⚡</p>
+            </div>
+
+            <div id="form-area" class="mt-24 grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- FORM REGISTRASI ANAK -->
+                <div class="form-card p-10 md:p-12 text-stone-800 border-8 border-yellow-400">
+                    <h2 class="text-3xl font-black text-green-700 mb-8 uppercase italic text-center">Registrasi Anak ⛺</h2>
+                    <form id="childForm" class="space-y-6">
+                        <div>
+                            <label class="text-xs font-black text-stone-400 ml-4">NAMA LENGKAP ANAK</label>
+                            <input type="text" name="namaAnak" required placeholder="Siapa namamu?" class="w-full px-6 py-4 rounded-full bg-stone-100 border-4 border-transparent focus:border-green-500 outline-none font-black text-lg shadow-inner">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="text-xs font-black text-stone-400 ml-4">NAMA ORTU</label>
+                                <input type="text" name="namaOrtu" required placeholder="Ayah/Bunda" class="w-full px-6 py-4 rounded-full bg-stone-100 border-4 border-transparent focus:border-green-500 outline-none font-bold shadow-inner">
+                            </div>
+                            <div>
+                                <label class="text-xs font-black text-stone-400 ml-4">BLOK RUMAH</label>
+                                <input type="text" name="blok" required placeholder="Cth: A1/10" class="w-full px-6 py-4 rounded-full bg-stone-100 border-4 border-transparent focus:border-green-500 outline-none font-bold shadow-inner">
+                            </div>
+                        </div>
+                        <button type="submit" id="btnChild" class="cartoon-btn w-full bg-[#2e7d32] text-white font-black py-5 rounded-full text-xl shadow-[0_8px_0_#1b5e20]">
+                            DAFTARKAN SI KECIL
+                        </button>
+                    </form>
+                </div>
+
+                <!-- FORM DONASI WARGA -->
+                <div class="form-card p-10 md:p-12 text-stone-800 border-8 border-orange-400">
+                    <h2 class="text-3xl font-black text-orange-600 mb-8 uppercase italic text-center">Donasi Warga 🤝</h2>
+                    <form id="supportForm" class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="text-[10px] font-black text-stone-400 ml-4">JENIS DONASI</label>
+                                <select name="kategori" id="katSelect" class="w-full px-5 py-3 rounded-full bg-stone-100 border-4 border-transparent focus:border-orange-500 outline-none font-black text-sm shadow-inner">
+                                    <option value="Makanan">Makanan</option>
+                                    <option value="Minuman">Minuman</option>
+                                    <option value="Uang (Rupiah)">Uang (Rupiah)</option>
+                                    <option value="Peralatan CAMPING">Peralatan CAMPING</option>
+                                    <option value="Lainnya">Lainnya (Ketik Manual)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-[10px] font-black text-stone-400 ml-4">BLOK RUMAH</label>
+                                <input type="text" name="blokSupport" required placeholder="Cth: B2/05" class="w-full px-5 py-3 rounded-full bg-stone-100 border-4 border-transparent focus:border-orange-500 outline-none font-bold text-sm shadow-inner">
+                            </div>
+                        </div>
+                        
+                        <div id="manualDiv" class="hidden">
+                            <label class="text-[10px] font-black text-orange-500 ml-4">KATEGORI LAINNYA</label>
+                            <input type="text" name="manualKat" id="manualKat" placeholder="Misal: Arang / Kayu Bakar" class="w-full px-5 py-3 rounded-full bg-stone-100 border-4 border-orange-200 outline-none font-bold text-sm shadow-inner">
+                        </div>
+
+                        <div>
+                            <label class="text-[10px] font-black text-stone-400 ml-4">NOMOR WHATSAPP (AKTIF)</label>
+                            <input type="tel" name="waSupport" required placeholder="08xxxxxxxxxx" class="w-full px-5 py-3 rounded-full bg-stone-100 border-4 border-transparent focus:border-orange-500 outline-none font-bold text-sm shadow-inner">
+                        </div>
+
+                        <div>
+                            <label class="text-[10px] font-black text-stone-400 ml-4">DETAIL DONASI</label>
+                            <input type="text" name="detail" id="detailInput" required placeholder="Cth: 2 Pack Sosis" class="w-full px-5 py-3 rounded-full bg-stone-100 border-4 border-transparent focus:border-orange-500 outline-none font-bold text-sm shadow-inner">
+                        </div>
+                        
+                        <button type="submit" id="btnSupport" class="cartoon-btn btn-orange w-full bg-[#f57c00] text-white font-black py-4 rounded-full text-lg mt-2">
+                            KIRIM DONASI
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-emerald-900 text-white relative">
+        <div class="footer-curve"></div>
+        <div class="max-w-6xl mx-auto px-6 py-12 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+                <div>
+                    <h4 class="text-2xl font-black mb-4 text-yellow-400 italic">CAMPING Ceria 2026</h4>
+                    <p class="text-sm font-bold opacity-70 leading-relaxed">
+                        Mewujudkan lingkungan komplek yang harmonis dan ramah anak melalui petualangan edukatif di halaman sendiri.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-black mb-4 uppercase tracking-widest text-orange-400">Lokasi Kegiatan</h4>
+                    <p class="text-sm font-bold opacity-70">
+                        Lapangan Pradha Ciganitri<br>
+                        Kab. Bandung, Jawa Barat
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-black mb-4 uppercase tracking-widest text-blue-400">Dikelola Oleh</h4>
+                    <p class="text-sm font-bold opacity-70">
+                        Panitia Gotong Royong<br>
+                        Warga Pradha Ciganitri
+                    </p>
+                </div>
+            </div>
+            <div class="mt-16 pt-8 border-t border-white/10 text-center">
+                <p class="text-xs font-black uppercase tracking-[0.4em] opacity-40">
+                    &copy; 2026 Pradha Ciganitri Adventure Team. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="mainModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-green-950/90 backdrop-blur-sm" onclick="closeModal()"></div>
+        <div class="bg-white w-full max-w-lg rounded-[3.5rem] relative z-10 overflow-hidden border-8 border-yellow-400 shadow-2xl">
+            <div id="modalHeader" class="p-8 flex justify-between items-center text-white">
+                <h3 id="modalTitle" class="text-2xl font-black uppercase">Data</h3>
+                <button onclick="closeModal()" class="w-10 h-10 bg-white/20 rounded-full font-black text-xl">&times;</button>
+            </div>
+            <div id="modalContent" class="p-6 max-h-[60vh] overflow-y-auto bg-stone-50 space-y-3"></div>
+        </div>
+    </div>
+
+    <div id="toast" class="fixed bottom-10 left-1/2 -translate-x-1/2 z-[200] hidden px-8 py-4 rounded-full font-black text-white shadow-2xl transition-all"></div>
+
+    <script>
+        const SCRIPT_URL = "URL_APPS_SCRIPT_ANDA_DISINI";
+
+        function scrollToId(id) { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); }
+        function closeModal() { document.getElementById('mainModal').classList.add('hidden'); }
+
+        const katSelect = document.getElementById('katSelect');
+        const manualDiv = document.getElementById('manualDiv');
+        const detailInput = document.getElementById('detailInput');
+
+        katSelect.addEventListener('change', function() {
+            if(this.value === "Lainnya") {
+                manualDiv.classList.remove('hidden');
+            } else {
+                manualDiv.classList.add('hidden');
+            }
+
+            if(this.value !== "Uang (Rupiah)") {
+                detailInput.placeholder = "Cth: 2 Pack Sosis";
+            } else {
+                detailInput.placeholder = "Rp. 0";
+            }
+        });
+
+        detailInput.addEventListener('input', function(e) {
+            if (katSelect.value === "Uang (Rupiah)") {
+                let value = e.target.value.replace(/[^0-9]/g, '');
+                if (value) {
+                    let formatted = new Intl.NumberFormat('id-ID').format(value);
+                    e.target.value = 'Rp. ' + formatted;
+                } else {
+                    e.target.value = '';
+                }
+            }
+        });
+
+        function showToast(msg, type) {
+            const toast = document.getElementById('toast');
+            toast.innerText = msg;
+            toast.className = `fixed bottom-10 left-1/2 -translate-x-1/2 z-[200] px-8 py-4 rounded-full font-black text-white shadow-2xl ${type === 'success' ? 'bg-green-500' : 'bg-red-500'}`;
+            toast.classList.remove('hidden');
+            setTimeout(() => toast.classList.add('hidden'), 3000);
+        }
+
+        async function openModal(type) {
+            const modal = document.getElementById('mainModal');
+            const content = document.getElementById('modalContent');
+            const header = document.getElementById('modalHeader');
+            const title = document.getElementById('modalTitle');
+            
+            modal.classList.remove('hidden');
+            content.innerHTML = '<div class="py-10 text-center font-bold text-stone-300 animate-pulse">MEMUAT DATA... 🏕️</div>';
+            
+            if(type === 'peserta') {
+                header.className = "p-8 flex justify-between items-center bg-green-600";
+                title.innerText = "Teman Terdaftar 👥";
+                await fetchData("readPeserta", content);
+            } else {
+                header.className = "p-8 flex justify-between items-center bg-orange-500";
+                title.innerText = "Donasi Warga 🤝";
+                await fetchData("readSupport", content);
+            }
+        }
+
+        async function fetchData(action, container) {
+            try {
+                const response = await fetch(`${SCRIPT_URL}?action=${action}`);
+                const data = await response.json();
+                if(!data || data.length === 0) { container.innerHTML = '<p class="text-center py-10 italic">Belum ada data petualang.</p>'; return; }
+                
+                container.innerHTML = data.map((item, idx) => {
+                    if(action === "readPeserta") {
+                        return `<div class="bg-white p-4 rounded-2xl border-2 border-stone-100 flex items-center gap-4">
+                                    <span class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center font-black text-green-700 text-xs">${idx+1}</span>
+                                    <div><p class="font-black uppercase text-sm">${item.namaAnak}</p><p class="text-[10px] text-stone-400 font-bold">Blok ${item.blok}</p></div>
+                                </div>`;
+                    } else {
+                        return `<div class="bg-white p-4 rounded-2xl border-2 border-orange-100">
+                                    <p class="text-[10px] font-black text-orange-600 uppercase mb-1">${item.kategori} • Blok ${item.blok}</p>
+                                    <p class="font-bold text-stone-700 text-sm">${item.detail}</p>
+                                    <p class="text-[9px] font-bold text-stone-400 mt-1">Kontak: ${item.wa}</p>
+                                </div>`;
+                    }
+                }).join('');
+            } catch (e) { container.innerHTML = '<p class="text-center py-10 text-red-500 font-bold">Gagal mengambil data.</p>'; }
+        }
+
+        document.getElementById('childForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btnChild');
+            btn.disabled = true; btn.innerText = "PROSES...";
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            data.type = "child";
+            try {
+                const res = await fetch(SCRIPT_URL, { method: 'POST', body: JSON.stringify(data) });
+                const json = await res.json();
+                if(json.result === "success") { showToast("BERHASIL TERDAFTAR! 🏕️", "success"); this.reset(); }
+                else { showToast("NAMA SUDAH TERDAFTAR! 🎒", "error"); }
+            } catch (err) { showToast("Data terkirim!", "success"); this.reset(); }
+            finally { btn.disabled = false; btn.innerText = "DAFTARKAN SI KECIL"; }
+        });
+
+        document.getElementById('supportForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btnSupport');
+            btn.disabled = true; btn.innerText = "PROSES...";
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            data.type = "support";
+            if(data.kategori === "Lainnya") data.kategori = data.manualKat;
+            try {
+                await fetch(SCRIPT_URL, { method: 'POST', body: JSON.stringify(data) });
+                showToast("DONASI DITERIMA! SYUKRAN 🤝", "success");
+                this.reset();
+                manualDiv.classList.add('hidden');
+            } catch (err) { showToast("Data terkirim!", "success"); this.reset(); }
+            finally { btn.disabled = false; btn.innerText = "KIRIM DONASI"; }
+        });
+    </script>
+</body>
+</html>
